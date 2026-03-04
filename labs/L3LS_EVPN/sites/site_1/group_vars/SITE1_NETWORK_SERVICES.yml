@@ -14,3 +14,9 @@ tenants:
             name: 'Twenty'
             enabled: true
             ip_address_virtual: 10.20.20.1/24
+
+    # l2vlans:
+    #   - id: 3100
+    #     name: L2_VLAN3100
+    #   - id: 3200
+    #     name: L2_VLAN3200
