@@ -1,0 +1,330 @@
+Device,Test Name,Test Status,Message(s),Test description,Test category
+s1-brdr1,VerifyBGPPeerSession,failure,Peer: 10.250.1.1 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 10.250.1.2 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 172.16.1.16 VRF: default - Incorrect session state - Expected: Established Actual: Idle - Peer: 172.16.1.18 VRF: default - Incorrect session state - Expected: Established Actual: Idle,Verifies the session state of BGP peers.,BGP
+s1-brdr1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-brdr1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-brdr1,VerifyLLDPNeighbors,failure,Port: Ethernet2 Neighbor: s1-spine1.atd.lab Neighbor Port: Ethernet7 - No LLDP neighbors - Port: Ethernet3 Neighbor: s1-spine2.atd.lab Neighbor Port: Ethernet7 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-brdr1,VerifyReachability,failure,Ping command 'ping vrf default 172.16.1.16 source 172.16.1.17 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address' - Ping command 'ping vrf default 172.16.1.18 source 172.16.1.19 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-brdr1,VerifyReachability,failure,Host: 10.250.1.1 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0 - Host: 10.250.1.2 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-brdr1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-brdr1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-brdr1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-brdr1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-brdr1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-brdr1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-brdr1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-brdr1,VerifyInterfaceErrDisabled,failure,Interface: Ethernet3 - Error disabled - Causes: bpduguard - Interface: Ethernet2 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-brdr1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-brdr1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-brdr1,VerifyInterfacesStatus,failure,"Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-brdr1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-brdr1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-brdr1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:35 2f2a5a69c356 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-brdr1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-brdr1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-brdr1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-brdr1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-brdr1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-brdr1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-brdr1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-brdr1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-brdr1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-brdr1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.09%,Verifies whether the memory utilization is below 75%.,System
+s1-brdr1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-brdr1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-brdr1,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-brdr2,VerifyBGPPeerSession,failure,Peer: 10.250.1.1 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 10.250.1.2 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 172.16.1.20 VRF: default - Incorrect session state - Expected: Established Actual: Idle - Peer: 172.16.1.22 VRF: default - Incorrect session state - Expected: Established Actual: Idle,Verifies the session state of BGP peers.,BGP
+s1-brdr2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-brdr2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-brdr2,VerifyLLDPNeighbors,failure,Port: Ethernet2 Neighbor: s1-spine1.atd.lab Neighbor Port: Ethernet8 - No LLDP neighbors - Port: Ethernet3 Neighbor: s1-spine2.atd.lab Neighbor Port: Ethernet8 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-brdr2,VerifyReachability,failure,Ping command 'ping vrf default 172.16.1.20 source 172.16.1.21 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address' - Ping command 'ping vrf default 172.16.1.22 source 172.16.1.23 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-brdr2,VerifyReachability,failure,Host: 10.250.1.1 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0 - Host: 10.250.1.2 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-brdr2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-brdr2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-brdr2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-brdr2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-brdr2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-brdr2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-brdr2,VerifyInterfaceDiscards,failure,Interface: Ethernet2 - Non-zero discard counter(s): inDiscards: 1246 - Interface: Ethernet3 - Non-zero discard counter(s): inDiscards: 1265,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-brdr2,VerifyInterfaceErrDisabled,failure,Interface: Ethernet3 - Error disabled - Causes: bpduguard - Interface: Ethernet2 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-brdr2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-brdr2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-brdr2,VerifyInterfacesStatus,failure,"Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-brdr2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-brdr2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-brdr2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:39 99d977d09dd3 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-brdr2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-brdr2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-brdr2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-brdr2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-brdr2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-brdr2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-brdr2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-brdr2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-brdr2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-brdr2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.16%,Verifies whether the memory utilization is below 75%.,System
+s1-brdr2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-brdr2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-brdr2,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-leaf1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+s1-leaf1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-leaf1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-leaf1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-leaf1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-leaf1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-leaf1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-leaf1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-leaf1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-leaf1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-leaf1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-leaf1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-leaf1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-leaf1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-leaf1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-leaf1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-leaf1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-leaf1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-leaf1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-leaf1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:19 9af91c5aabcd NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 13:59:24 9af91c5aabcd Bgp: %BGP-3-DROP_TXUPDATE: Dropped updates for peer 192.0.255.2 (VRF default AS 65001) because a local L2VPN Nexthop was not configured
+ Mar  4 13:59:26 9af91c5aabcd Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.2 (VRF default AS 65001) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 13:59:27 9af91c5aabcd Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.1 (VRF default AS 65001) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:11:10 s1-leaf1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.255.251.1 (VRF Tenant_A_OP_Zone AS 65101) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:11:10 s1-leaf1 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:896) at tbt://10.255.252.1:5541/+n (ConnectionManager disconnect)
+ Mar  4 14:11:10 s1-leaf1 IgmpSnooping: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbt://10.255.252.1:5541/+n-in)(IgmpSnooping (pid:896))
+ Mar  4 14:11:10 s1-leaf1 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:896) at tbt://10.255.252.1:58570/-26 (closing passive socket)
+ Mar  4 14:11:16 s1-leaf1 StpTxRx: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Mlag (pid:930) at tbl://mlagListen/+n closed by peer (EOF)
+ Mar  4 14:11:16 s1-leaf1 StpTxRx: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://mlagListen/+n-in)(Mlag (pid:930))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-leaf1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-leaf1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-leaf1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-leaf1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-leaf1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-leaf1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-leaf1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-leaf1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-leaf1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-leaf1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.12%,Verifies whether the memory utilization is below 75%.,System
+s1-leaf1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-leaf1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-leaf1,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-leaf2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+s1-leaf2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-leaf2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-leaf2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-leaf2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-leaf2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-leaf2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-leaf2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-leaf2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-leaf2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-leaf2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-leaf2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-leaf2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-leaf2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-leaf2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-leaf2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-leaf2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-leaf2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-leaf2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-leaf2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:23 a8a949eeb8e8 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 14:11:10 s1-leaf2 Mlag: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Mlag (pid:930) at tbt://10.255.252.0:4432/+n closed by peer (EOF)
+ Mar  4 14:11:10 s1-leaf2 Mlag: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbt://10.255.252.0:4432/+n-in)(Mlag (pid:930))
+ Mar  4 14:13:10 s1-leaf2 IgmpSnooping: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to IgmpSnooping (pid:919) at tbt://10.255.252.0:5541/+n closed by peer (Connection timed out when reading)
+ Mar  4 14:13:10 s1-leaf2 IgmpSnooping: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbt://10.255.252.0:5541/+n-in)(IgmpSnooping (pid:919))
+ Mar  4 14:27:17 s1-leaf2 IgmpSnooping: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to IgmpSnooping (pid:919) at tbt://10.255.252.0:44792/-27 closed by peer (Connection timed out when reading)
+ Mar  4 14:34:29 s1-leaf2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.1 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:29 s1-leaf2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.30.255.4 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:29 s1-leaf2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.2 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:29 s1-leaf2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.30.255.6 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf2 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:919) at tbt://10.255.252.0:5541/+n (ConnectionManager disconnect)
+ Mar  4 14:34:30 s1-leaf2 StpTxRx: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Mlag (pid:918) at tbl://mlagListen/+n closed by peer (EOF)
+ Mar  4 14:34:30 s1-leaf2 StpTxRx: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://mlagListen/+n-in)(Mlag (pid:918))
+ Mar  4 14:34:34 s1-leaf2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.1.1 (VRF default AS 65100) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-leaf2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-leaf2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-leaf2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-leaf2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-leaf2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-leaf2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-leaf2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-leaf2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-leaf2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-leaf2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.16%,Verifies whether the memory utilization is below 75%.,System
+s1-leaf2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-leaf2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-leaf2,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-leaf3,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+s1-leaf3,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-leaf3,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-leaf3,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-leaf3,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-leaf3,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-leaf3,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-leaf3,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-leaf3,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-leaf3,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-leaf3,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-leaf3,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-leaf3,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-leaf3,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-leaf3,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-leaf3,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-leaf3,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-leaf3,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-leaf3,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-leaf3,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:25 e651810e1fb8 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 14:34:30 s1-leaf3 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.255.251.5 (VRF Tenant_A_OP_Zone AS 65102) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf3 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:886) at tbt://10.255.252.5:5541/+n (ConnectionManager disconnect)
+ Mar  4 14:34:30 s1-leaf3 IgmpSnooping: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbt://10.255.252.5:5541/+n-in)(IgmpSnooping (pid:886))
+ Mar  4 14:34:30 s1-leaf3 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:886) at tbt://10.255.252.5:56644/-27 (closing passive socket)
+ Mar  4 14:34:30 s1-leaf3 StpTxRx: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Mlag (pid:875) at tbl://mlagListen/+n closed by peer (EOF)
+ Mar  4 14:34:30 s1-leaf3 StpTxRx: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://mlagListen/+n-in)(Mlag (pid:875))
+ Mar  4 14:34:31 s1-leaf3 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.16.1.10 (VRF default AS 65100) 6/7 (Cease/connection collision resolution) 0 bytes 
+ Mar  4 14:34:32 s1-leaf3 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.1.2 (VRF default AS 65100) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-leaf3,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-leaf3,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-leaf3,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-leaf3,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-leaf3,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-leaf3,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-leaf3,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-leaf3,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-leaf3,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-leaf3,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.09%,Verifies whether the memory utilization is below 75%.,System
+s1-leaf3,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-leaf3,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-leaf3,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-leaf4,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+s1-leaf4,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-leaf4,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-leaf4,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-leaf4,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-leaf4,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-leaf4,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-leaf4,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-leaf4,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-leaf4,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-leaf4,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-leaf4,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+s1-leaf4,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-leaf4,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-leaf4,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-leaf4,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-leaf4,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-leaf4,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+s1-leaf4,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-leaf4,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:28 383c47e09885 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 13:59:43 383c47e09885 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.2 (VRF default AS 65001) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 13:59:43 383c47e09885 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.1 (VRF default AS 65001) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf4 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.255.251.4 (VRF Tenant_A_OP_Zone AS 65102) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf4 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.255.251.4 (VRF default AS 65102) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf4 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.1 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf4 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.2 (VRF default AS 65001) 6/3 (Cease/peer de-configured <Hard Reset>) 0 bytes
+ Mar  4 14:34:30 s1-leaf4 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:865) at tbt://10.255.252.4:5541/+n (ConnectionManager disconnect)
+ Mar  4 14:34:30 s1-leaf4 IgmpSnooping: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbt://10.255.252.4:5541/+n-in)(IgmpSnooping (pid:865))
+ Mar  4 14:34:30 s1-leaf4 IgmpSnooping: %FWK-3-SOCKET_CLOSE_LOCAL: Closing connection to IgmpSnooping (pid:865) at tbt://10.255.252.4:49562/-27 (closing passive socket)
+ Mar  4 14:34:30 s1-leaf4 StpTxRx: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Mlag (pid:894) at tbl://mlagListen/+n closed by peer (EOF)
+ Mar  4 14:34:30 s1-leaf4 StpTxRx: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://mlagListen/+n-in)(Mlag (pid:894))
+ Mar  4 14:54:16 s1-leaf4 Bgp: %BGP-3-DROP_TXUPDATE: Dropped updates for peer 10.250.1.1 (VRF default AS 65100) because a local L2VPN Nexthop was not configured
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-leaf4,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+s1-leaf4,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+s1-leaf4,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+s1-leaf4,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-leaf4,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-leaf4,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-leaf4,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-leaf4,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-leaf4,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-leaf4,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.36%,Verifies whether the memory utilization is below 75%.,System
+s1-leaf4,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-leaf4,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-leaf4,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+s1-spine1,VerifyBGPPeerSession,failure,Peer: 10.250.1.7 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 10.250.1.8 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 172.16.1.17 VRF: default - Incorrect session state - Expected: Established Actual: Idle - Peer: 172.16.1.21 VRF: default - Incorrect session state - Expected: Established Actual: Idle,Verifies the session state of BGP peers.,BGP
+s1-spine1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-spine1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-spine1,VerifyLLDPNeighbors,failure,Port: Ethernet7 Neighbor: s1-brdr1.atd.lab Neighbor Port: Ethernet2 - No LLDP neighbors - Port: Ethernet8 Neighbor: s1-brdr2.atd.lab Neighbor Port: Ethernet2 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-spine1,VerifyReachability,failure,Ping command 'ping vrf default 172.16.1.17 source 172.16.1.16 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address' - Ping command 'ping vrf default 172.16.1.21 source 172.16.1.20 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-spine1,VerifyReachability,failure,Host: 10.250.1.7 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0 - Host: 10.250.1.8 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-spine1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-spine1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-spine1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-spine1,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-spine1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-spine1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-spine1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-spine1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-spine1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-spine1,VerifyInterfacesStatus,failure,"Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-spine1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-spine1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:17 388c6bbe95f6 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 13:59:27 388c6bbe95f6 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.3 (VRF default AS 65101) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 13:59:44 388c6bbe95f6 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.6 (VRF default AS 65102) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:11:13 s1-spine1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.3 (VRF default AS 65101) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:13:56 s1-spine1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.30.255.1 (VRF default AS 65101) 4/0 (Hold Timer Expired Error/None) 0 bytes
+ Mar  4 14:34:34 s1-spine1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.1.4 (VRF default AS 65101) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-spine1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-spine1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-spine1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-spine1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-spine1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-spine1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-spine1,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.44%,Verifies whether the memory utilization is below 75%.,System
+s1-spine1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-spine1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+s1-spine2,VerifyBGPPeerSession,failure,Peer: 10.250.1.7 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 10.250.1.8 VRF: default - Incorrect session state - Expected: Established Actual: Connect - Peer: 172.16.1.19 VRF: default - Incorrect session state - Expected: Established Actual: Idle - Peer: 172.16.1.23 VRF: default - Incorrect session state - Expected: Established Actual: Idle,Verifies the session state of BGP peers.,BGP
+s1-spine2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+s1-spine2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+s1-spine2,VerifyLLDPNeighbors,failure,Port: Ethernet7 Neighbor: s1-brdr1.atd.lab Neighbor Port: Ethernet3 - No LLDP neighbors - Port: Ethernet8 Neighbor: s1-brdr2.atd.lab Neighbor Port: Ethernet3 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+s1-spine2,VerifyReachability,failure,Ping command 'ping vrf default 172.16.1.19 source 172.16.1.18 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address' - Ping command 'ping vrf default 172.16.1.23 source 172.16.1.22 size 100 repeat 1' failed with an unexpected message: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+s1-spine2,VerifyReachability,failure,Host: 10.250.1.7 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0 - Host: 10.250.1.8 Source: Loopback0 VRF: default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+s1-spine2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on cEOSLab,Verifies the status of power supply fans and all fan trays.,Hardware
+s1-spine2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on cEOSLab,Verifies the power supplies state and input voltage.,Hardware
+s1-spine2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on cEOSLab,Verifies the device's system cooling status.,Hardware
+s1-spine2,VerifyTemperature,skipped,VerifyTemperature test is not supported on cEOSLab,Verifies if the device temperature is within acceptable limits.,Hardware
+s1-spine2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on cEOSLab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+s1-spine2,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+s1-spine2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+s1-spine2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+s1-spine2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+s1-spine2,VerifyInterfacesStatus,failure,"Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+s1-spine2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on cEOSLab,Verifies there are no interface storm-control drop counters.,Interfaces
+s1-spine2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Mar  4 13:57:17 1602addfbe21 NorCalInit: %HARDWARE-0-SYSTEM_IDENTIFICATION_FAILED: Failed to identify this system
+ Mar  4 13:59:26 1602addfbe21 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.3 (VRF default AS 65101) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 13:59:44 1602addfbe21 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.6 (VRF default AS 65102) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:11:14 s1-spine2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.0.255.3 (VRF default AS 65101) 6/10 (Cease/BFD down <Hard Reset>) 0 bytes
+ Mar  4 14:14:04 s1-spine2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.30.255.3 (VRF default AS 65101) 4/0 (Hold Timer Expired Error/None) 0 bytes
+ Mar  4 14:34:31 s1-spine2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 172.16.1.11 (VRF default AS 65102) 6/7 (Cease/connection collision resolution) 0 bytes 
+ Mar  4 14:34:32 s1-spine2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.1.5 (VRF default AS 65102) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+s1-spine2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+s1-spine2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+s1-spine2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+s1-spine2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+s1-spine2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+s1-spine2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+s1-spine2,VerifyMemoryUtilization,failure,Device has reported a high memory usage - Expected: < 75% Actual: 82.20%,Verifies whether the memory utilization is below 75%.,System
+s1-spine2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+s1-spine2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
